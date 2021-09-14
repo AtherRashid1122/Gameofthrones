@@ -1,25 +1,70 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Login from './component/Screens/Login';
+import Home from './component/Screens/Home';
+import Apidataintoredux from './component/Screens/Apidataintoredux';
+import Getdata from './component/Screens/Getdata';
+import Recieved from './component/Screens/Recieved';
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  Link,
+  NavLink
+} from "react-router-dom";
 
-function App() {
+
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <div style={{}}>
 
+      <div style={{ background: 'yellow', display: 'flex', justifyContent: 'space-around' }}>
+
+        {/* <li>
+          <Link to="/Home">Counter App</Link>
+        </li>
+
+        <li>
+          <Link to="/Login">Login/Logout</Link>
+        </li>
+
+        <li>
+          <Link to="/Api">ApidatatoRedux</Link>
+        </li> */}
+
+        <li>
+          <Link to="/getdata">Getdata</Link>
+        </li>
+
+        <li>
+          <Link to="/recieved">Recieved</Link>
+        </li>
+      </div>
+      <Switch>
+        <Route exact path="/Login">
+          <Login />
+        </Route>
+
+        <Route exact path="/Home">
+          <Home />
+        </Route>
+
+        <Route exact path="/Api">
+          <Apidataintoredux />
+        </Route>
+
+        <Route exact path="/getdata">
+          <Getdata />
+        </Route>
+
+
+        <Route exact path="/recieved">
+          <Recieved />
+        </Route>
+
+      </Switch>
+    </div>
+
+  )
+}
 export default App;
