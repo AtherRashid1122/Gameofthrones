@@ -11,6 +11,7 @@ import {
   Link,
   NavLink
 } from "react-router-dom";
+import Registrationform from './component/Screens/Registrationform';
 
 
 
@@ -20,7 +21,7 @@ const App = () => {
 
       <div style={{ background: 'yellow', display: 'flex', justifyContent: 'space-around' }}>
 
-        {/* <li>
+        <li>
           <Link to="/Home">Counter App</Link>
         </li>
 
@@ -30,7 +31,7 @@ const App = () => {
 
         <li>
           <Link to="/Api">ApidatatoRedux</Link>
-        </li> */}
+        </li>
 
         <li>
           <Link to="/getdata">Getdata</Link>
@@ -38,6 +39,9 @@ const App = () => {
 
         <li>
           <Link to="/recieved">Recieved</Link>
+        </li>
+        <li>
+          <Link to="/registration">RegistrationForm</Link>
         </li>
       </div>
       <Switch>
@@ -62,6 +66,9 @@ const App = () => {
           <Recieved />
         </Route>
 
+        <Route exact path="/registration">
+          <Registrationform />
+        </Route>
       </Switch>
     </div>
 

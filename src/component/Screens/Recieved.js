@@ -24,7 +24,7 @@ const Recieved = () => {
     return (
         <div style={{}}>
 
-            <h3>
+            {/* <h3>
                 First Name is:  {item.firstName}
             </h3>
             <h3>
@@ -43,9 +43,57 @@ const Recieved = () => {
             <h3>
                 Family is:  {item.family}
 
-            </h3>
-            <img style={{ height: '200px', width: '200px' }} src={item.imageUrl} alt="Logo" />;
+            </h3> */}
 
+
+            {/* <img style={{ height: '200px', width: '200px' }} src={item.imageUrl} alt="Logo" />; */}
+
+            <table>
+
+                <tr>
+                    <th>
+                        First Name
+                    </th>
+                    <th>
+                        Last Name
+                    </th>
+                    <th>
+                        Full Name
+                    </th>
+                    <th>
+                        Title
+                    </th>
+                    <th>
+                        Family
+                    </th>
+                    <th>
+                        Image
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        {item.firstName}
+                    </td>
+                    <td>
+                        {item.lastName}
+                    </td>
+                    <td>
+                        {item.fullName}
+                    </td>
+
+                    <td>
+                        {item.title}
+                    </td>
+                    <td>
+                        {item.family}
+                    </td>
+
+                    <td>
+                        <img style={{ height: '100px', width: '100px' }} src={item.imageUrl} alt="Logo" />;
+
+                    </td>
+                </tr>
+            </table>
         </div>
     )
 }

@@ -15,7 +15,6 @@ export const Delete = (data) => {
 }
 export const Updatedata = (id) => {
     // console.log("update id is ", id)
-
     return {
         type: 'UPDATE_DATA',
         data: id

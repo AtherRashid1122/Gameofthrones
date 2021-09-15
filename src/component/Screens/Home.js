@@ -41,3 +41,12 @@ const Home = () => {
 }
 
 export default Home
+
+    // const Search = (e) => {
+    //     let filterdata = [];
+    //     let input = e.target.value;
+    //     filterdata = data.filter((item, index) => {
+    //         return item.firstName.search(input) != -1;
+    //     });
+    //     setdata(filterdata);
+    // }

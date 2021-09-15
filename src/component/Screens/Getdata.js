@@ -5,32 +5,23 @@ import { Route, Switch, Link } from "react-router-dom";
 const Getdata = () => {
     const [data, setdata] = useState([])
     const [input, setinput] = useState()
+    // var [filterdata, setfilterdata] = useState([])
 
 
 
     const Search = (e) => {
-        let filterdata = [];
-        let input = e.target.value;
+        setinput(e.target.value);
+        let filterdata = []
+        console.log("input data is ", input)
+        filterdata = data?.filter((item, index) => {
+            return item.firstName.search(input) !== -1
+        })
+        setdata(filterdata)
 
-        console.log("value = ", input)
-        filterdata = data.filter((item, index) => {
-            return item.firstName.search(input) != -1;
-        });
-        setdata(filterdata);
     }
-
-
-
-    // console.log("data is", data)
-
-
-    // const Showdata = () => {
-    //     fetch('https://thronesapi.com/api/v2/Characters').then(response => response.json()).then(json => setdata(json))
-    // }
 
     useEffect(() => {
         fetch('https://thronesapi.com/api/v2/Characters').then(response => response.json()).then(json => setdata(json))
-
     }, [])
 
     console.log(data)
@@ -42,7 +33,7 @@ const Getdata = () => {
             </div>
 
 
-            <list>
+            {/* <list>
                 {
                     data?.map((item, index) => {
 
@@ -55,11 +46,45 @@ const Getdata = () => {
                         )
                     })
                 }
-            </list>
+            </list> */}
+            <div>
+                <table>
+                    <tr>
+                        <th>
+                            id
+                        </th>
+                        <th>
+                            First Name
+                        </th>
 
+                        <th>
+                            Lastname
+                        </th>
+                        <th>
+                            Details
+                        </th>
+                    </tr>
+                    {data?.map((item, index) => {
+                        console.log("itemss", item)
+                        return (
+                            <tr>
+                                <td>
+                                    {item.id}
+                                </td>
+                                <td>
+                                    {item.firstName}
+                                </td>
+                                <td>
+                                    {item.lastName}
+                                </td>
+                                <Link to={`/recieved?id=${item.id}`}> Show details </Link>
+                            </tr>
+                        )
+                    })}
+                </table>
 
-
-        </div>
+            </div>
+        </div >
     )
 }
 
