@@ -12,6 +12,8 @@ import {
   NavLink
 } from "react-router-dom";
 import Registrationform from './component/Screens/Registrationform';
+import Signup from './component/Screens/Auth/Signup';
+import Loginauth from './component/Screens/Auth/Loginauth';
 
 
 
@@ -43,6 +45,15 @@ const App = () => {
         <li>
           <Link to="/registration">RegistrationForm</Link>
         </li>
+
+
+        <li>
+          <Link to="/signin">Signup</Link>
+        </li>
+
+        <li>
+          <Link to="/Loginauth">Login</Link>
+        </li>
       </div>
       <Switch>
         <Route exact path="/Login">
@@ -68,6 +79,16 @@ const App = () => {
 
         <Route exact path="/registration">
           <Registrationform />
+        </Route>
+
+
+        <Route exact path="/signin">
+          <Signup />
+        </Route>
+
+
+        <Route exact path="/Loginauth">
+          <Loginauth />
         </Route>
       </Switch>
     </div>

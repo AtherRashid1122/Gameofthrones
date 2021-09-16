@@ -4,8 +4,7 @@ const initialstate = {
 }
 
 export const Regitrationreducer = (state = initialstate, action) => {
-    console.log("Reducer data  is ", action.payload)
-    console.log("id data  is ", action.id)
+
 
 
     switch (action.type) {
