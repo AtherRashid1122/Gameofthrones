@@ -9,15 +9,22 @@ const Getdata = () => {
 
 
 
-    const Search = (e) => {
-        setinput(e.target.value);
-        let filterdata = []
-        console.log("input data is ", input)
-        filterdata = data?.filter((item, index) => {
-            return item.firstName.search(input) !== -1
-        })
-        setdata(filterdata)
+    // const Search = (e) => {
+    //     setinput(e.target.value);
+    //     let filterdata = []
+    //     console.log("input data is ", input)
+    //     filterdata = data?.filter((item, index) => {
+    //         return item.firstName.search(input) !== -1
+    //     })
+    //     setdata(filterdata)
+    // }
 
+    const Search = (e) => {
+        const updated = data?.filter((item, index) => {
+            console.log("item data is ", item)
+            return item.firstName.includes(e.target.value)
+        })
+        setdata(updated)
     }
 
     useEffect(() => {
