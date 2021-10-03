@@ -14,6 +14,8 @@ import {
 import Registrationform from './component/Screens/Registrationform';
 import Signup from './component/Screens/Auth/Signup';
 import Loginauth from './component/Screens/Auth/Loginauth';
+import Shoppingcart from './component/Screens/Shoppingcart/Shoppingcart';
+import Logincart from './component/Screens/Auth/Logincart';
 
 
 
@@ -54,6 +56,15 @@ const App = () => {
         <li>
           <Link to="/Loginauth">Login</Link>
         </li>
+
+        <li>
+          <Link to="/Shopping">Shopping Cart</Link>
+        </li>
+
+
+        <li>
+          <Link to="/Logincart">Login cart</Link>
+        </li>
       </div>
       <Switch>
         <Route exact path="/Login">
@@ -89,6 +100,15 @@ const App = () => {
 
         <Route exact path="/Loginauth">
           <Loginauth />
+        </Route>
+
+        <Route exact path="/Shopping">
+          <Shoppingcart />
+        </Route>
+
+
+        <Route exact path="/Logincart">
+          <Logincart/>
         </Route>
       </Switch>
     </div>

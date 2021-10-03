@@ -58,7 +58,6 @@ const Registrationform = () => {
         })
         dispatch(Updateddata(updated))
         settoggle(false)
-
         setemail('')
         setname('')
         setpass('')
@@ -83,7 +82,7 @@ const Registrationform = () => {
 
             </div>
             <div style={{ padding: '30px' }}>
-                <label style={{ marginLeft: '20px' }}>
+                <label style={{marginLeft: '20px' }}>
                     Name
                 </label>
                 <input value={name} onChange={handlename} style={{ marginLeft: '20px' }} type="text" placeholder="Enter Name">
@@ -96,14 +95,14 @@ const Registrationform = () => {
 
                 </input>
 
-                <label style={{ marginLeft: '20px' }}>
+                <label style={{marginLeft: '20px' }}>
                     Email
                 </label>
                 <input value={email} onChange={handleemail} style={{ marginLeft: '20px' }} type="text" placeholder="Enter Email">
 
                 </input>
 
-                <label style={{ marginLeft: '20px' }}>
+                <label style={{marginLeft: '20px' }}>
                     Password
                 </label>
                 <input value={pass} onChange={handlepass} style={{ marginLeft: '20px' }} type="text" placeholder="Enter Password">

@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from 'react'
-
 import { Route, Switch, Link } from "react-router-dom";
-
 const Getdata = () => {
     const [data, setdata] = useState([])
     const [input, setinput] = useState()
-    // var [filterdata, setfilterdata] = useState([])
-
-
-
+    var [filterdata, setfilterdata] = useState([])
     // const Search = (e) => {
     //     setinput(e.target.value);
     //     let filterdata = []
@@ -18,28 +13,34 @@ const Getdata = () => {
     //     })
     //     setdata(filterdata)
     // }
-
     const Search = (e) => {
-        const updated = data?.filter((item, index) => {
-            console.log("item data is ", item)
-            return item.firstName.includes(e.target.value)
-        })
-        setdata(updated)
+        let updated = []
+        if (e.target.value.length >= 3) {
+            updated = data?.filter((item) => {
+                return item.firstName.includes(e.target.value)
+            })
+            setfilterdata(updated)
+        }
+        else {
+            setfilterdata(data)
+        }
     }
-
     useEffect(() => {
-        fetch('https://thronesapi.com/api/v2/Characters').then(response => response.json()).then(json => setdata(json))
+        fetch('https://thronesapi.com/api/v2/Characters')
+            .then(response => response.json())
+            .then(json => {
+                setdata(json)
+                setfilterdata(json)
+            })
     }, [])
-
+    
     console.log(data)
     return (
-        <div >
+        <div>
             <div style={{ justifyContent: 'center', alignContent: 'center', alignItems: 'center', textAlign: 'center' }}>
                 <input onChange={Search} type="text"></input>
-                <button  >Search</button>
+                <button>Search</button>
             </div>
-
-
             {/* <list>
                 {
                     data?.map((item, index) => {
@@ -63,7 +64,6 @@ const Getdata = () => {
                         <th>
                             First Name
                         </th>
-
                         <th>
                             Lastname
                         </th>
@@ -71,7 +71,7 @@ const Getdata = () => {
                             Details
                         </th>
                     </tr>
-                    {data?.map((item, index) => {
+                    {filterdata?.map((item, index) => {
                         console.log("itemss", item)
                         return (
                             <tr>
@@ -89,10 +89,8 @@ const Getdata = () => {
                         )
                     })}
                 </table>
-
             </div>
         </div >
     )
 }
-
 export default Getdata;

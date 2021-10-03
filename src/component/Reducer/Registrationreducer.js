@@ -13,9 +13,7 @@ export const Regitrationreducer = (state = initialstate, action) => {
             return {
                 ...state,
                 user: [...state.user, action.payload]
-
             }
-
         case 'DELETEID':
 
             return { ...state, user: state.user.filter((item, index) => index !== action.id) }
